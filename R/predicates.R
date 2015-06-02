@@ -234,3 +234,21 @@ within_n_sds <- function(n, ...){
 }
 
 
+#' Returns TRUE if value is a UUID
+#'
+#' This functions returns true if the input is a valid uuid.
+#'
+#' @param x a character vector
+#' @return A vector of the same length that is TRUE when the element is
+#' a UUID and FALSE otherwise
+#' @examples
+#' is_uuid("xxxx")
+#' is_uuid("de305d54-75b4-431b-adb2-eb6b9e546014")
+#'
+#' @export
+is_uuid <- function(x) {
+  stringi::stri_detect_regex(x, "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}")
+}
+# from above seems like this is the method for communicating this function
+# is vectorized
+comment(not_na) <- "assertr/vectorized"
